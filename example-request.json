@@ -1,0 +1,258 @@
+{
+  "input": {
+    "workflow": {
+      "6": {
+        "inputs": {
+          "text": "A candid, slightly blurred shot taken from a student's desk as their young professor leans in close to assist with coursework, her loose black blouse gaping just enough to reveal the soft swell of cleavage as she bends forward, the fabric draping lazily over her toned yet curvaceous frame. Her fitted blue jeans cling to her narrow waist and flare subtly over rounded hips, the casual ensemble accentuating her natural voluptuousness without overt intent. The grainy phone camera quality lends an air of spontaneityan illicit glimpse caught mid-moment, the low-angle perspective framing her lithe athleticism while emphasizing the intimacy of her proximity, the focus uneven but unmistakably drawn to the way her body moves with unselfconscious ease as she gestures toward the paper, unaware of the lens capturing her., casual photo, A candid, slightly blurred shot taken from a student's desk as their young professor leans in close to assist with coursework, her loose black blouse gaping just enough to reveal the soft swell of cleavage as she bends forward, the fabric draping lazily over her toned yet curvaceous frame. Her fitted blue jeans cling to her narrow waist and flare subtly over rounded hips, the casual ensemble accentuating her natural voluptuousness without overt intent. The grainy phone camera quality lends an air of spontaneityan illicit glimpse caught mid-moment, the low-angle perspective framing her lithe athleticism while emphasizing the intimacy of her proximity, the focus uneven but unmistakably drawn to the way her body moves with unselfconscious ease as she gestures toward the paper, unaware of the lens capturing her., high quality image, 4k, 8k, HD, UHD, Sharp Focus, In Frame",
+          "clip": [
+            "191",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIP Text Encode (Positive Prompt)"
+        }
+      },
+      "8": {
+        "inputs": {
+          "samples": [
+            "31",
+            0
+          ],
+          "vae": [
+            "39",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "31": {
+        "inputs": {
+          "seed": 997635277167335,
+          "steps": 20,
+          "cfg": 1,
+          "sampler_name": "euler",
+          "scheduler": "simple",
+          "denoise": 1,
+          "model": [
+            "191",
+            0
+          ],
+          "positive": [
+            "35",
+            0
+          ],
+          "negative": [
+            "135",
+            0
+          ],
+          "latent_image": [
+            "188",
+            0
+          ]
+        },
+        "class_type": "KSampler",
+        "_meta": {
+          "title": "KSampler"
+        }
+      },
+      "35": {
+        "inputs": {
+          "value": 0.4,
+          "conditioning": [
+            "177",
+            0
+          ]
+        },
+        "class_type": "FluxGuidance",
+        "_meta": {
+          "title": "FluxGuidance"
+        }
+      },
+      "37": {
+        "inputs": {
+          "filename": "flux1-dev-kontext_fp8_scaled.safetensors"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "UNETLoader"
+        }
+      },
+      "38": {
+        "inputs": {
+          "filename": "clip_l.safetensors"
+        },
+        "class_type": "DualCLIPLoader",
+        "_meta": {
+          "title": "DualCLIPLoader"
+        }
+      },
+      "39": {
+        "inputs": {
+          "filename": "ae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "42": {
+        "inputs": {
+          "image": [
+            "146",
+            0
+          ]
+        },
+        "class_type": "FluxKontextImageScale",
+        "_meta": {
+          "title": "FluxKontextImageScale"
+        }
+      },
+      "124": {
+        "inputs": {
+          "pixels": [
+            "42",
+            0
+          ],
+          "vae": [
+            "39",
+            0
+          ]
+        },
+        "class_type": "VAEEncode",
+        "_meta": {
+          "title": "VAEEncode"
+        }
+      },
+      "135": {
+        "inputs": {
+          "conditioning": [
+            "6",
+            0
+          ]
+        },
+        "class_type": "ConditioningZeroOut",
+        "_meta": {
+          "title": "ConditioningZeroOut"
+        }
+      },
+      "136": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "8",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "142": {
+        "inputs": {
+          "filename": "model_liorathane.jpeg [output]"
+        },
+        "class_type": "LoadImageOutput",
+        "_meta": {
+          "title": "LoadImageOutput"
+        }
+      },
+      "146": {
+        "inputs": {
+          "text": "right",
+          "image1": [
+            "142",
+            0
+          ],
+          "image2": [
+            "147",
+            0
+          ]
+        },
+        "class_type": "ImageStitch",
+        "_meta": {
+          "title": "ImageStitch"
+        }
+      },
+      "147": {
+        "inputs": {
+          "filename": "ComfyUI_00444_.png [output]"
+        },
+        "class_type": "LoadImageOutput",
+        "_meta": {
+          "title": "LoadImageOutput"
+        }
+      },
+      "173": {
+        "inputs": {
+          "images": [
+            "42",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "PreviewImage"
+        }
+      },
+      "177": {
+        "inputs": {
+          "conditioning": [
+            "6",
+            0
+          ],
+          "latent": [
+            "124",
+            0
+          ]
+        },
+        "class_type": "ReferenceLatent",
+        "_meta": {
+          "title": "ReferenceLatent"
+        }
+      },
+      "188": {
+        "inputs": {
+          "width": 512,
+          "height": 768,
+          "batch_size": 1
+        },
+        "class_type": "EmptySD3LatentImage",
+        "_meta": {
+          "title": "EmptySD3LatentImage"
+        }
+      },
+      "189": {
+        "inputs": {
+          "filename": "flux1-kontext-dev-Q4_K_M.gguf"
+        },
+        "class_type": "UnetLoaderGGUF",
+        "_meta": {
+          "title": "UnetLoaderGGUF"
+        }
+      },
+      "191": {
+        "inputs": {
+          "value": {},
+          "model": [
+            "189",
+            0
+          ],
+          "clip": [
+            "38",
+            0
+          ]
+        },
+        "class_type": "Power Lora Loader (rgthree)",
+        "_meta": {
+          "title": "Power Lora Loader (rgthree)"
+        }
+      }
+    }
+  }
+}
